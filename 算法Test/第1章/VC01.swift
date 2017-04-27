@@ -24,8 +24,26 @@ class VC01: BaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        tongSort()
+        bubbeSort()
+        
+        //tongSort()
     }
+    
+    func bubbeSort(){
+    
+        var array = [ 4, 2, 1, 3, 6, 9, 0]
+        for i in 0..<array.count{
+            for j in i..<array.count{
+                if array[i] > array[j] {
+                    let tag = array[j]
+                    array[j] = array[i];
+                    array[i] = tag;
+                }
+            }
+        }
+        print(array)
+    }
+    
     
     
     func tongSort(){
@@ -43,7 +61,7 @@ class VC01: BaseViewController {
         }
         
         print(array1)
-          
+        
     }
     
 
