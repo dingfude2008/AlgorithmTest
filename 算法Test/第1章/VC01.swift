@@ -15,12 +15,35 @@ class VC01: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        tongSort()
+    }
+    
+    
+    func tongSort(){
+        
+        let array = [ 5, 4, 2, 1, 6, 8]
+        
+        var array1 = [Int]()
+        for _ in 0...10 {
+            array1.append(0)
+        }
+
+        for i in array {
+            
+            array1[i] += 1
+        }
+        
+        print(array1)
+          
     }
     
 
