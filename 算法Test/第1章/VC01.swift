@@ -10,6 +10,13 @@ import UIKit
 
 var arrayQuick = [ 4, 2, 1, 3, 6, 9, 0, 8, 7, 3, 4, 2,  5, 3, 2]
 
+
+struct queue {
+    var data = [Int]()
+    var head = 0
+    var tail = 0
+}
+
 class VC01: BaseViewController {
 
     override func viewDidLoad() {
@@ -23,15 +30,61 @@ class VC01: BaseViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
+
+        getQQNumber()
         
-        quickSort(0, arrayQuick.count - 1)
         
-        print(arrayQuick)
+//        quickSort(0, arrayQuick.count - 1)
+//        
+//        print(arrayQuick)
         
 //        bubbeSort()
         
         //tongSort()
+        
+    }
+    
+    func getQQNumberQueue(){
+    
+        let q = queue()
+        
+        
+        
+    }
+    
+    func getQQNumber(){
+        
+        // 原始号码为这个
+        // 6 1 5 9 4 7 2 8 3
+
+        var array = [ 6, 1, 5, 9, 4, 7, 2, 8, 3 ]
+        
+        var arrayTag = [Int]()
+        for i in 0...30 {
+            if array.count > i {
+                arrayTag.append(array[i])
+            }else{
+                arrayTag.append(0)
+            }
+        }
+        
+        var head = 0
+        var tail = array.count
+        
+        while head < tail {
+            
+            print(arrayTag[head])
+            head += 1
+            
+            arrayTag[tail] = arrayTag[head]
+            
+            tail += 1
+            
+            head += 1
+        }
+        
+        print(array)
+        
         
     }
     
