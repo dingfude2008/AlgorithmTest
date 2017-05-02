@@ -69,41 +69,100 @@ class VC01: BaseViewController {
         
         // 桌上的牌
         var queueTask = queue()
-        queueTask.head = 0              // 栈顶
+        queueTask.head = 0
         
         // 开始游戏
-        
-        // 要出的牌
-        let t = q1.data[q1.head]
-        
-        // 检测桌上面有没有这张牌
-        let isHave = false
-        
-        if queueTask.data.contains(t) {
-        
-            guard let tIndex = queueTask.data.index(of: t) else {
-                return
+        while q1.head < q1.tail && q2.head < q2.tail {
+            
+            // 第一个人先出牌
+            // 要出的牌
+            var t = q1.data[q1.head]
+            
+            print("q1出牌 \(t)")
+            
+            if queueTask.data.contains(t) {
+                
+                print("q1出的牌，牌桌上有，开始收牌")
+                
+                // 出了一张牌，标记移动1
+                q1.head += 1
+                
+                // 收起刚出的那张牌
+                q1.data.append(t)
+                q1.tail += 1
+                
+                // 桌上的牌是个栈，遵循后进先出的原则
+                var last = queueTask.data[queueTask.tail - 1]
+                
+                while last != t {
+                    print("q1 将桌子上的\(t)放入在自己的手里最后一位")
+                    q1.data.append(last)
+                    queueTask.data.remove(at: queueTask.tail - 1)
+                    
+                    queueTask.tail -= 1
+                    last = queueTask.data[queueTask.tail - 1]
+                }
+                
+                print("q1 将桌子上的\(t)放入在自己的手里最后一位")
+                q1.data.append(last)
+                queueTask.data.remove(at: queueTask.tail - 1)
+                queueTask.tail -= 1
+            }else{
+                
+                print("q1出的牌，牌桌上没有")
+                
+                q1.head += 1
+                
+                // 桌上的牌加一
+                queueTask.data.append(t)
+                queueTask.tail += 1
+                
+                print("牌桌上的牌 \(queueTask.data)")
             }
             
-            
-            
-            
-            
-        }else{
-        
+            t = q2.data[q2.head]
+            print("q2出牌 \(t)")
+            if queueTask.data.contains(t) {
+                
+                print("q2出的牌，牌桌上有，开始收牌")
+                q2.head += 1
+                q2.data.append(t)
+                q2.tail += 1
+                
+                var last = queueTask.data[queueTask.tail - 1]
+                while last != t {
+                    print("q2 将桌子上的\(t)放入在自己的手里最后一位")
+                    q1.data.append(last)
+                    queueTask.data.remove(at: queueTask.tail - 1)
+                    
+                    queueTask.tail -= 1
+                    last = queueTask.data[queueTask.tail - 1]
+                }
+                
+                print("q2 将桌子上的\(t)放入在自己的手里最后一位")
+                q1.data.append(last)
+                queueTask.data.remove(at: queueTask.tail - 1)
+                
+                queueTask.tail -= 1
+            }else{
+                
+                print("q2出的牌，牌桌上没有")
+                
+                q2.head += 1
+                
+                // 桌上的牌加一
+                queueTask.data.append(t)
+                queueTask.tail += 1
+                
+                print("牌桌上的牌 \(queueTask.data)")
+            }
         }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        if q1.head == q1.tail {
+            print("q2获胜")
+        }else{
+            print("q1获胜")
+        }
         
         
         
