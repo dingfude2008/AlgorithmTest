@@ -15,6 +15,7 @@
 		AD220FD01EB1D57200A39262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD220FCF1EB1D57200A39262 /* ViewController.swift */; };
 		AD220FD41EB1D84000A39262 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD220FD31EB1D84000A39262 /* Bundle+Extension.swift */; };
 		AD220FD61EB1DA8500A39262 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD220FD51EB1DA8500A39262 /* BaseViewController.swift */; };
+		ADF1B1901EB8708D007FAC40 /* VC01_C.c in Sources */ = {isa = PBXBuildFile; fileRef = ADF1B18E1EB8708D007FAC40 /* VC01_C.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		AD220FCF1EB1D57200A39262 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD220FD31EB1D84000A39262 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		AD220FD51EB1DA8500A39262 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		ADF1B18D1EB8708C007FAC40 /* 算法Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "算法Test-Bridging-Header.h"; sourceTree = "<group>"; };
+		ADF1B18E1EB8708D007FAC40 /* VC01_C.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VC01_C.c; sourceTree = "<group>"; };
+		ADF1B18F1EB8708D007FAC40 /* VC01_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VC01_C.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +48,11 @@
 		AD220FAA1EB1A31D00A39262 = {
 			isa = PBXGroup;
 			children = (
+				ADF1B18E1EB8708D007FAC40 /* VC01_C.c */,
+				ADF1B18F1EB8708D007FAC40 /* VC01_C.h */,
 				AD220FB51EB1A31D00A39262 /* 算法Test */,
 				AD220FB41EB1A31D00A39262 /* Products */,
+				ADF1B18D1EB8708C007FAC40 /* 算法Test-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +136,7 @@
 				TargetAttributes = {
 					AD220FB21EB1A31D00A39262 = {
 						CreatedOnToolsVersion = 8.3.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -170,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD220FD61EB1DA8500A39262 /* BaseViewController.swift in Sources */,
+				ADF1B1901EB8708D007FAC40 /* VC01_C.c in Sources */,
 				AD220FD01EB1D57200A39262 /* ViewController.swift in Sources */,
 				AD220FCE1EB1D20E00A39262 /* VC01.swift in Sources */,
 				AD220FB71EB1A31D00A39262 /* AppDelegate.swift in Sources */,
@@ -296,10 +305,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "算法Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dfd.testApp.--Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "算法Test-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -308,10 +320,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "算法Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dfd.testApp.--Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "算法Test-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -335,6 +349,7 @@
 				AD220FC71EB1A31D00A39262 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
