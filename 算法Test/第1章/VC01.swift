@@ -30,10 +30,15 @@ class VC01: BaseViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-//        getQQNumber()
         
-        getQQNumberQueue()
+        playZhugan()
+        
+//        checkIsHuiWen(string: "123454321")
+        
+        
+//        getQQNumberQueue()
+        
+//        getQQNumber()
         
 //        quickSort(0, arrayQuick.count - 1)
 //        
@@ -42,6 +47,111 @@ class VC01: BaseViewController {
 //        bubbeSort()
         
         //tongSort()
+        
+    }
+    
+    
+    /// 接竹竿游戏的模拟
+    /// 条件是，纸牌有 1- 9
+    func playZhugan(){
+        
+        // 第一个人手里的牌
+        var q1 = queue()
+        q1.head = 0
+        q1.data = [ 2, 4, 1, 2, 5, 6 ]
+        q1.tail = q1.data.count
+        
+        // 第二个人手里的牌
+        var q2 = queue()
+        q2.head = 0
+        q2.data = [ 3, 1, 3, 5, 6, 4 ]
+        q2.tail = q1.data.count
+        
+        // 桌上的牌
+        var queueTask = queue()
+        queueTask.head = 0              // 栈顶
+        
+        // 开始游戏
+        
+        // 要出的牌
+        let t = q1.data[q1.head]
+        
+        // 检测桌上面有没有这张牌
+        let isHave = false
+        
+        if queueTask.data.contains(t) {
+        
+            guard let tIndex = queueTask.data.index(of: t) else {
+                return
+            }
+            
+            
+            
+            
+            
+        }else{
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    /// 判断是否是回文
+    func checkIsHuiWen(string : String){
+    
+        let mid = Int(ceil(Double(string.characters.count) / 2.0))  - 1
+        
+        print(string.characters.count)
+        
+        print(mid)
+        
+        var array = [String]()
+        
+        for i in 0..<mid {
+            
+            let range = Range(uncheckedBounds: (lower: string.index(string.startIndex, offsetBy: i), upper: string.index(string.startIndex, offsetBy: i+1)))
+            
+            let charString = string.substring(with: range)
+            
+            print(charString)
+            
+            array.append(charString)
+        }
+        
+        
+        
+        for i in (mid+1..<string.characters.count).reversed(){
+            
+            let range = Range(uncheckedBounds: (lower: string.index(string.startIndex, offsetBy: i), upper: string.index(string.startIndex, offsetBy: i+1)))
+            
+            let valueRight = string.substring(with: range)
+        
+            let valueLeft = array[string.characters.count - i - 1]
+            
+            let result = valueLeft.compare(valueRight)
+            
+            if result == .orderedSame {
+                
+                continue
+            }else{
+            
+                print("不是回文")
+                break
+            }
+        }
         
     }
     
@@ -207,7 +317,9 @@ class VC01: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    
 }
 
 
