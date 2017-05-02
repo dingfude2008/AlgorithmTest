@@ -31,8 +31,9 @@ class VC01: BaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
-        getQQNumber()
+//        getQQNumber()
         
+        getQQNumberQueue()
         
 //        quickSort(0, arrayQuick.count - 1)
 //        
@@ -44,14 +45,40 @@ class VC01: BaseViewController {
         
     }
     
+    /// 结构体获取Q号码
     func getQQNumberQueue(){
     
-        let q = queue()
+        var q = queue()
         
+        q.head = 1
+        
+        var array = [ 6, 1, 5, 9, 4, 7, 2, 8, 3 ]
+        for i in 0...30 {
+            if array.count > i {
+                q.data.append(array[i])
+            }else{
+                q.data.append(0)
+            }
+        }
+        
+        q.tail = array.count
+        
+        while q.head < q.tail {
+            print(q.data[q.head])
+            
+            q.head += 1
+            
+            q.data[q.tail] = q.data[q.head]
+            
+            q.tail += 1
+            q.head += 1
+        }
         
         
     }
     
+    
+    /// 获取Q号码
     func getQQNumber(){
         
         // 原始号码为这个
@@ -88,6 +115,11 @@ class VC01: BaseViewController {
         
     }
     
+    /// 快速排序
+    ///
+    /// - Parameters:
+    ///   - left: 左边的索引
+    ///   - right: 右边的索引
     func quickSort(_ left: Int, _ right: Int){
         if left > right {
             return
@@ -127,6 +159,8 @@ class VC01: BaseViewController {
         quickSort(i + 1, right)
     }
     
+    
+    /// 冒泡排序
     func bubbeSort(){
     
         var array = [ 4, 2, 1, 3, 6, 9, 0]
@@ -144,6 +178,7 @@ class VC01: BaseViewController {
     
     
     
+    /// 通排序
     func tongSort(){
         
         let array = [ 5, 4, 2, 1, 6, 8]
